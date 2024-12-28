@@ -46,7 +46,7 @@ const DoctorPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-violet-400 to-90% p-6">
+        <div className="min-h-screen bg-gradient-to-r from-blue-500 to-indigo-500 p-6">
             <h1 className="text-2xl font-bold text-center text-white mb-6">Patient Records</h1>
             <div className="max-w-4xl mx-auto space-y-4">
                 {patients.map((patient) => (

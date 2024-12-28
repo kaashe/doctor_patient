@@ -375,7 +375,7 @@ const StepperForm = () => {
 
     return (
         <div
-            className="min-h-screen bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-violet-400 to-90% flex items-center justify-center p-4 sm:px-1"
+            className="min-h-screen bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center p-4 sm:px-1"
         // style={{
         //     backgroundImage:
         //         "url('https://plus.unsplash.com/premium_photo-1664475455210-d06a88a4d3a4?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
