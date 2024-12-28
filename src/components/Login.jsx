@@ -17,8 +17,8 @@ const Login = () => {
 
     return (
         <div className="min-h-screen p-4 bg-gradient-to-r from-blue-500 to-indigo-500">
-            <form onSubmit={handleLogin} className="max-w-md mx-auto">
-                <h2 className="text-xl font-bold mb-4">Doctor Login</h2>
+            <form onSubmit={handleLogin} className="max-w-md mx-auto text-white">
+                <h2 className="text-xl font-bold mb-4 ">Doctor Login</h2>
                 <div>
                     <label className="block">Username</label>
                     <input
