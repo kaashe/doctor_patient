@@ -1,10 +1,10 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const SummaryPage = () => {
-    const location = useLocation();
-    const { formData } = location.state;
-    console.log(formData, 'form data');
+    const navigate = useNavigate();
+    const formData  = JSON.parse(localStorage.getItem('formData'));
+    console.log('formmm',formData);
 
     return (
         <div className="min-h-screen bg-gradient-to-r  from-blue-500 to-indigo-400 flex justify-center items-center px-4 py-8">
@@ -48,7 +48,7 @@ const SummaryPage = () => {
                 </div>
                 <div className="text-center mt-6">
                     <button
-                        onClick={() => window.location.href = '/'}
+                        onClick={() => navigate('/patient')}
                         className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-2 px-6 rounded-lg shadow-lg hover:shadow-xl hover:from-blue-500 hover:to-indigo-500 transition duration-300"
                     >
                         Start Over

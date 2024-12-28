@@ -12,19 +12,25 @@ const StepperForm = () => {
     const { register, handleSubmit } = useForm();
 
     const handleNext = (data) => {
-        setFormData({ ...formData, ...data });
+        const updatedFormData = { ...formData, ...data };
+        setFormData(updatedFormData); // Update the formData state
+    
+        // Save updated data to localStorage
+        localStorage.setItem('formData', JSON.stringify(updatedFormData));
+    
         if (step < 3) {
-            setStep(step + 1);
+            setStep(step + 1); // Move to the next step
         } else {
             Swal.fire({
                 title: "Onboarding Successful!",
-                text: "our data has been successfully submitted.",
+                text: "Your data has been successfully submitted.",
                 icon: "success",
                 confirmButtonText: "OK",
             });
-            navigate("/summary", { state: { formData } });
+            navigate("/summary");
         }
     };
+    
 
     const renderStep = () => {
         switch (step) {
@@ -44,7 +50,7 @@ const StepperForm = () => {
                             <div>
                                 <label className="block text-sm font-medium mb-1">Email</label>
                                 <input
-                                    {...register("filling_person")}
+                                    {...register("email")}
                                     type="email"
                                     className="border rounded w-full p-2"
                                     required
@@ -60,6 +66,15 @@ const StepperForm = () => {
                                 />
                             </div>
                             <div>
+                                <label className="block text-sm font-medium mb-1">Date of Birth</label>
+                                <input
+                                    className="border rounded w-full p-2"
+                                    type="date"
+                                    placeholder="Date of Birth" {...register("DateofBirth", {})}
+                                    required
+                                />
+                            </div>
+                            <div>
                                 <label className="block text-sm font-medium mb-1">Gender</label>
                                 <select
                                     {...register("gender")}
@@ -71,15 +86,6 @@ const StepperForm = () => {
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
                                 </select>
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium mb-1">Person (if not the Patient)</label>
-                                <input
-                                    {...register("filling_person")}
-                                    type="text"
-                                    className="border rounded w-full p-2"
-                                    required
-                                />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium mb-1">Phone Number</label>
@@ -131,20 +137,21 @@ const StepperForm = () => {
                                 <label className="block text-sm font-medium mb-1">Zip</label>
                                 <input
                                     {...register("Zip")}
+                                    type="number"
+                                    className="border rounded w-full p-2"
+                                    required
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium mb-1">Person (if not the Patient)</label>
+                                <input
+                                    {...register("filling_person")}
                                     type="text"
                                     className="border rounded w-full p-2"
-                                    required
                                 />
                             </div>
-                            <div>
-                                <label className="block text-sm font-medium mb-1">Date of Birth</label>
-                                <input
-                                    className="border rounded w-full p-2"
-                                    type="date"
-                                    placeholder="Date of Birth" {...register("DateofBirth", {})}
-                                    required
-                                />
-                            </div>
+
 
                         </div>
                     </>
@@ -188,7 +195,7 @@ const StepperForm = () => {
                             <div>
                                 <label className="block text-sm font-medium mb-1">Do you have any drug allergies?</label>
                                 <select
-                                    {...register("allergies")}
+                                    {...register("durg_allergies")}
                                     className="border rounded w-full p-2"
                                     required
                                 >
@@ -347,8 +354,6 @@ const StepperForm = () => {
                             </div>
 
                         </div>
-
-                        {/* freehale -sachet */}
                     </>
                 );
             case 3:
