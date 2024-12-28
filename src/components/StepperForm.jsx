@@ -37,7 +37,7 @@ const StepperForm = () => {
             case 1:
                 return (
                     <>
-                        <div className="grid grid-cols-3"><h1 className="text-2xl">Basic Info</h1></div>
+                        <div className="w-full"><h1 className="text-2xl">Basic Info</h1></div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
                             <div>
                                 <label className="block text-sm font-medium mb-1">Name</label>
