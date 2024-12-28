@@ -35,7 +35,7 @@ const Login = () => {
                         onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
                     />
                 </div>
-                <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded mt-4">
+                <button type="submit" className="bg-slate-400 text-white py-2 px-4 rounded mt-4 w-full">
                     Login
                 </button>
             </form>
