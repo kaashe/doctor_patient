@@ -2,6 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FcMindMap } from "react-icons/fc";
+import { FcComboChart } from "react-icons/fc";
+import { FaUserDoctor } from "react-icons/fa6";
+import { FaUserInjured } from "react-icons/fa";
+
 const SplashScreen = () => {
     const [isVisible, setIsVisible] = useState(true);
     const navigate = useNavigate();
@@ -27,19 +31,19 @@ const SplashScreen = () => {
         <div className="min-h-screen px-2 bg-gradient-to-r from-blue-500 to-indigo-400 flex flex-col justify-center items-center text-white text-center">
             {isVisible ? <FcMindMap className="text-9xl animate-pulse"/> :
                 <>
-                    <h1 className="text-3xl font-bold mb-4">Welcome to the Patient Onboarding</h1>
+                    <h1 className="text-3xl font-bold mb-4 flex items-center gap-3">Patient Onboarding <FcComboChart className="text-white text-5xl"/></h1>
                     <p className="text-lg mb-6">Helps doctors speed up patient check-Ins</p>
                     <button
                         onClick={handleDoctorClick}
-                        className="bg-white text-blue-500 px-6 py-2 rounded-lg mb-3"
+                        className="bg-white text-blue-500 px-6 py-2 rounded-lg mb-3 justify-between flex items-center gap-3"
                     >
-                        Are you a doctor?
+                        Doctor? <FaUserDoctor className="text-3xl"/>
                     </button>
                     <button
                         onClick={handlePatientClick}
-                        className="bg-white text-blue-500 px-6 py-2 rounded-lg"
+                         className="bg-white text-blue-500 px-6 py-2 rounded-lg mb-3 justify-between flex items-center gap-3"
                     >
-                        Are you a patient?
+                         Patient? <FaUserInjured className="text-3xl"/>
                     </button>
                 </>
             }

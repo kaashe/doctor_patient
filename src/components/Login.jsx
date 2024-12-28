@@ -17,8 +17,8 @@ const Login = () => {
 
     return (
         <div className="min-h-screen p-4 bg-gradient-to-r from-blue-500 to-indigo-500">
-            <form onSubmit={handleLogin} className="max-w-md mx-auto text-white">
-                <h2 className="text-xl font-bold mb-4 ">Doctor Login</h2>
+            <form onSubmit={handleLogin} className="max-w-md mx-auto text-white flex flex-col gap-3">
+                <h2 className="text-xl font-bold mb-4 text-center">Doctor Login</h2>
                 <div>
                     <label className="block">Username</label>
                     <input
@@ -35,7 +35,7 @@ const Login = () => {
                         onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
                     />
                 </div>
-                <button type="submit" className="bg-slate-400 text-white py-2 px-4 rounded mt-4 w-full">
+                <button type="submit"   className="bg-slate-300 text-blue-600 px-6 py-2 rounded-lg mt-3  w-full">
                     Login
                 </button>
             </form>
