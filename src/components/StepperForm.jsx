@@ -159,7 +159,7 @@ const StepperForm = () => {
             case 2:
                 return (
                     <>
-                        <div className="grid grid-cols-3 mb-4"><h1 className="text-2xl">Medical Info</h1></div>
+                        <div className="w-full mb-4"><h1 className="text-2xl">Medical Info</h1></div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
                             <div>
