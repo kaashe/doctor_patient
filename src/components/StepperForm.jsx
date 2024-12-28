@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 const StepperForm = () => {
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({});
@@ -13,8 +13,17 @@ const StepperForm = () => {
 
     const handleNext = (data) => {
         setFormData({ ...formData, ...data });
-        if (step < 3) setStep(step + 1);
-        else navigate("/summary", { state: { formData } });
+        if (step < 3) {
+            setStep(step + 1);
+        } else {
+            Swal.fire({
+                title: "Onboarding Successful!",
+                text: "our data has been successfully submitted.",
+                icon: "success",
+                confirmButtonText: "OK",
+            });
+            navigate("/summary", { state: { formData } });
+        }
     };
 
     const renderStep = () => {
@@ -133,6 +142,7 @@ const StepperForm = () => {
                                     className="border rounded w-full p-2"
                                     type="date"
                                     placeholder="Date of Birth" {...register("DateofBirth", {})}
+                                    required
                                 />
                             </div>
 
@@ -401,7 +411,7 @@ const StepperForm = () => {
                         )}
                         <button
                             type="submit"
-                            className="bg-blue-500 text-white py-2 px-4 rounded"
+                            className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-2 px-6 rounded-lg shadow-lg hover:shadow-xl hover:from-blue-500 hover:to-indigo-500 transition duration-300"
                         >
                             {step < 3 ? "Next" : "Submit"}
                         </button>
